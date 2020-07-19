@@ -100,7 +100,9 @@ def runSeamCarving(I, n):
 # Parsing arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("image", help="image path")
-parser.add_argument("-W", "--width", help="width change in percentage", type=int, default=100, choices = range(1, 201))
+valid_width = list(range(1, 201))
+valid_width.remove(100)
+parser.add_argument("-W", "--width", help="width change in percentage", type=int, default=100, choices = valid_width)
 args = parser.parse_args()
 print("Arguments given", args)
 
